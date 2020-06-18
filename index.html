@@ -1,0 +1,170 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>task</title>
+        <link rel="icon" type="image/png" href="favicon.png" />
+        <link rel="stylesheet" href="css/style.css">
+
+        <script src="http://code.jquery.com/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+        <link rel="stylesheet" href="js/vegas/vegas.min.css">
+        <script src="js/vegas/vegas.min.js"></script>
+    </head>
+    <body>   
+        <div class="container">
+            <div class="flex">
+            <div class="search">
+                <form action="">
+                    <div>
+                        <img src="img/close.svg" alt="close" class="close-search">
+                    </div> 
+                    <input type="text" placeholder="Авто">
+                    <button><img src="img/search.svg" alt=""><span>Найти</span></button>
+                </form>
+            </div>
+            <div class="bg-menu">
+                <div class="menu">
+                    <nav>
+                        <ul>
+                            <li><a href="#">Главная</a></li>
+                            <li><a href="#">Каталог</a></li>
+                            <li><a href="#">Проекты</a></li>
+                            <li><a href="#">Компании</a></li>
+                            <li><a href="#">Контакты</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div class="animate-cont">
+            <header>
+                <div class="logo">
+                    <a href="#"><img src="img/icon.png" alt="logo"></a>
+                </div>
+                <div class="nav">
+                    <nav>
+                        <ul>
+                            <li><a href="#">Главная</a></li>
+                            <li><a href="#">Каталог</a></li>
+                            <li><a href="#">Проекты</a></li>
+                            <li><a href="#">Компании</a></li>
+                            <li><a href="#">Контакты</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="search-menu">
+                    <img src="img/search.svg" alt="icon search" class="search-img">
+                    <a href="#" class="menu-btn"><span></span></a>
+                </div>
+            </header>
+        </div>
+
+            <section class="content">
+                <div class="content-wr">
+                    <div class="block two-header">
+                        <img src="img/power.png" alt="power">
+                        <h2>Электроника</h2>
+                        <div class="block-header">
+                            <h3>Интеграл</h3>
+                            <h3>Электрод</h3>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="content-wr">
+                    <div class="block two-header">
+                        <img src="img/battery.png" alt="power">
+                        <h2>Компьютеры и сети</h2>
+                        <div class="block-header">
+                            <h3>Acer</h3>
+                            <h3>Hp</h3>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="content-wr">
+                    <div class="block one-header">
+                        <img src="img/generator.png" alt="power">
+                        <h2>Бытовая техника</h2>
+                        <div class="block-header">
+                            <h3>Samsung</h3>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="content-wr">
+                    <div class="block one-header">
+                        <img src="img/power2.png" alt="power">
+                        <h2>Стройка и ремонт</h2>
+                        <div class="block-header">
+                            <h3>Акрил</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-wr">
+                    <div class="block two-header">
+                        <img src="img/airbrush.png" alt="power">
+                        <h2>Дом и сад</h2>
+                        <div class="block-header">
+                            <h3>Алмаз</h3>
+                            <h3>Bosch</h3>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="content-wr">
+                    <div class="block">
+                        <img src="img/tools-and-utensils.png" alt="power">
+                        <h2>Авто и мото</h2>
+                        
+                    </div>
+                </div>
+            </section>
+            <footer>    
+                <div class="button">
+                    <a href=""></a>
+                </div>   
+                <div class="footer">Каталог&copy;</div>
+                <div class="footer"></div>
+                <div class="footer">Разработка Сайтов</div>
+            </footer>
+        </div>
+        </div>
+
+        <script>
+            if(document.documentElement.clientWidth > 767) {
+                $(".container").vegas({
+                    delay: 4000,
+                    timer: false,
+                    firstTransition: 'fade',
+                    firstTransitionDuration: 5000,
+                    
+                    transitionDuration: 2000,
+                    slides: [
+                        { src: "img/bg-image-1.jpg" },
+                        { src: "img/bg-image-2.jpg" },
+                        { src: "img/bg-image-3.jpg" },
+                        { src: "img/bg-image-4.jpg" },        
+                        { src: "img/bg-image-5.jpg" }    
+                    ]
+                });
+            } else {
+                $(".animate-cont").vegas({
+                    delay: 4000,
+                    timer: false,
+                    firstTransition: 'fade',
+                    firstTransitionDuration: 5000,           
+                    transitionDuration: 2000,
+                    slides: [
+                        { src: "img/bg-image-1.jpg" },
+                        { src: "img/bg-image-2.jpg" },
+                        { src: "img/bg-image-3.jpg" },
+                        { src: "img/bg-image-4.jpg" },        
+                        { src: "img/bg-image-5.jpg" }    
+                    ]
+                });
+            }
+        </script>
+        <script src="js/js.js"></script>
+    </body>
+</html>

@@ -1,0 +1,549 @@
+@font-face
+  font-family: "Rubik"
+  src : url("../fonts/Rubik-Regular.ttf")
+
+$font-text: Rubik
+$font-color: #fff
+$color-bg: #4285F4
+$color-red: #F44242 
+$border: 2px solid rgba(255, 255, 255, 0.1)
+
+@mixin block 
+    box-sizing: border-box
+    width: 33.3%
+    border: 
+        right: $border
+        bottom: $border
+@mixin font-large 
+    text:
+        decoration: none
+        transform: uppercase
+    font:
+        weight: 500
+        size: 24px
+    line-height: 34px
+@mixin font-small
+    font-size: 16px
+    line-height: 23px
+@mixin font-small-1024
+    font-size: 12px
+    line-height: 17px
+@mixin font-large-1024
+    font-size: 18px
+    line-height: 21px
+*
+    margin: 0
+    padding: 0
+body 
+    @media  (max-width: 767px) 
+        display: flex
+        align-items: flex-end
+.content-wr-active
+    z-index: 0
+    transition: ease 1s
+.bg-menu
+    width: 100%
+    background-color: rgba(0, 0, 0, 0)
+    height: 100%
+    position: fixed
+    z-index: -1
+    transition: ease 1s
+    
+.menu 
+    width: 33.3%
+    background-color: #fff
+    height: 100%
+    position: fixed
+    z-index: 2
+    left: 100%
+    transition: left 0.5s
+    @media  (max-width: 1024px) 
+        width: 50%
+    @media  (max-width: 767px) 
+        width: 100%
+    nav
+        position: absolute
+        top: 50%
+        right: 50%
+        transform: translate(50%,-50%)
+        ul
+            list-style-type: none
+            li
+                margin-bottom: 30px
+                a
+                    @include font-large
+                    color: #34363B
+                    transition: linear  0.1s
+                    @media (min-width: 1025px) and (max-width: 1599px)  
+                        @include font-small-1024
+                        
+            li:first-child a, a:hover
+                color: $color-red
+                border-bottom: 2px solid $color-red
+                
+.menu-active 
+    left: 66.7%
+    // transition: left 0.5s
+    z-index: 7
+    @media  (max-width: 1024px) 
+        left: 50%
+    @media  (max-width: 767px) 
+        // transition: left 0.7s
+        left: 0%
+        // transition: transform  0.5s
+.bg-menu-active 
+    z-index: 5
+    background-color: rgba(0, 0, 0, 0.7)
+    @media  (max-width: 767px) 
+        background-color: rgba(0, 0, 0, 0)
+
+
+.search.active 
+    left: 0
+    transition: left 0.5s
+    z-index: 15
+.close-search
+  transition: transform 0.5s
+.close-search-active 
+  transition: transform  0.5s
+.search 
+    position: fixed
+    display: block
+    width: 100%
+    height: 100%
+    left: -100%
+    top: 0
+    z-index: 1
+    background: $font-color
+    opacity: 0.96
+    transition: left  0.5s
+    form 
+        height: 100%
+    .close-search
+        position: absolute
+        right: 68px
+        top: 46px
+        transition: all ease-in-out 0.3s
+        &:hover
+            opacity: 0.4
+            cursor: pointer
+    input 
+        position: absolute
+        top: calc((100% - 154px)/2)
+        right: calc((100% - 930px)/2)
+        border: none
+        border-bottom: 1px solid rgba(52, 54, 59, 0.2)
+        width: 930px
+        transition: all ease-in-out 0.3s
+        padding-bottom: 10px
+        color: #34363B
+        font:
+            weight: 500
+            size: 18px
+        line-height: 21px
+        @media  (max-width: 768px) 
+            width: 90%
+            left: 0
+            transform: translate(5%,50%)
+        &:focus, &:hover
+            outline: none
+            border-color: rgb(52, 54, 59)
+    button
+        position: absolute
+        bottom: 0px
+        width: 100%
+        height: 100px
+        background-color: $color-red
+        border: none
+        display: flex
+        align-items: center
+        justify-content: center
+        transition: all ease 0.8s
+        &:hover
+            cursor: pointer
+            opacity: 0.8
+        span
+            font: 
+                weight: 500
+                size: 18px
+            line-height: 21px
+            text-transform: uppercase
+            color: $font-color
+            text-align: center
+        img
+            margin-right: 10px
+
+.container
+    width: 100%
+    font-family: $font-text
+    color: $font-color
+    // height: 100vh
+    display: flex
+    justify-content: flex-end
+    align-items: flex-end
+
+    
+.animate-cont
+    @media (max-width: 767px)
+        padding: 115px 10px 60px
+        box-sizing: border-box
+        position: relative
+header
+    display: flex
+    height: 25vh
+    @media only screen and  (max-width: 1024px) 
+        height: 15%
+        justify-content: space-between 
+    @media (max-width: 767px)
+        justify-content: center
+        align-items: center
+    .logo
+        @media (max-width: 767px)
+            width: auto
+
+    div
+        @include block
+        height: 100%
+        padding: 46px 0 0 68px
+        @media (min-width: 1024px) and (max-width: 1344px)  
+            padding: 28px 0 0 30px
+        @media only screen and  (max-width: 1024px)
+            border: none
+        // @media only screen and   (max-width: 767px)  
+        //     border: none
+        //     padding: 0
+        &:nth-child(2) 
+            padding-left: 0
+        &:last-child
+            border-right: none
+            padding: 36px 58px 0 0
+            text-align: right
+            @media (min-width: 1025px) and (max-width: 1344px)  
+                padding: 30 58px 0 0
+            @media (max-width: 1024px)  
+                padding: 30px
+            // @media only screen and   (max-width: 767px)  
+            //     padding: 0
+
+    .search-menu
+        img
+            padding: 10px
+            transition: all ease-in-out 0.3s
+            margin-right: 20px
+            @media (max-width: 1024px) 
+                margin-right: 15px 
+            @media (max-width: 767px)  
+                position: absolute
+                left: 20px
+                top: 10px
+
+            &:hover 
+                background-color: $color-red
+                cursor: pointer
+        .menu-btn 
+            display: inline-block
+            width: 46px
+            height: 46px
+            position: relative
+            z-index: 10
+            // background-color: $color-red   
+            @media   (max-width: 767px)  
+                position: absolute
+                right: 20px
+                top: 10px
+            &:hover
+                background-color: $color-red
+                cursor: pointer
+        & span, & span::before, & span::after
+            position: absolute
+            top: 50% 
+            margin-top: -1px
+            left: 50%
+            margin-left: -13px
+            width: 26px
+            height: 2px
+            background-color: $font-color
+        & span::before, & span::after 
+            content: ''
+            display: block
+            transition: 0.2s
+        & span::before 
+            transform: translateY(-7px)
+        & span::after 
+            transform: translateY(7px)
+        .menu-btn_active span:before 
+            transform: rotate(-45deg)
+            background-color: #34363B
+        .menu-btn_active span:after 
+            transform: rotate(45deg)
+            background-color: #34363B
+        .menu-btn_active
+            background-color: $font-color
+        .menu-btn_active span 
+            height: 0
+            transition: 0.2s
+        .menu-btn_active:hover
+            opacity: 0.4
+            cursor: pointer
+            background-color: $font-color  
+         
+    nav
+        ul
+            display: flex
+            justify-content: center
+            list-style-type: none
+            @media (max-width: 768px)
+                display: none
+            li
+                margin: 0 20px
+                @media (min-width: 1345px) and (max-width: 1599px)   
+                    margin: 0 8px
+                @media (min-width: 1025px) and (max-width: 1344px)   
+                    margin: 0 5px
+                a
+                    @include font-small
+                    text-decoration: none   
+                    color: $font-color
+                    @media (min-width: 1025px) and (max-width: 1344px)   
+                        @include font-small-1024
+                    
+                &:after 
+                    display: block
+                    content: ""
+                    height: 2px
+                    width: 0%
+                    margin: 5px auto
+                    background-color: $color-red
+                    transition: width .3s ease-in-out
+                &:hover:after, &:focus:after 
+                    margin: 5px auto
+                    width: 45px
+.nav
+    @media (max-width: 1024px) 
+        display: none
+
+        
+// .flex
+//     height: 100vh
+//     display: flex
+//     // align-items: flex-end
+//     flex-direction: column
+//     justify-content: space-between
+//     // align-items: center
+
+.content
+    // position: absolute
+    // top: 30%
+    display: flex
+    flex-wrap: wrap
+    height: 50vh
+    @media (max-width: 1024px)
+        height: auto
+        
+    &-wr
+        @include block
+        height: 50%
+        display: flex
+        align-items: center 
+        cursor: pointer
+        position: relative
+        overflow: hidden
+        padding-left: 68px
+        @media (min-width: 1025px) and (max-width: 1599px)  
+            padding-left: 34px
+        @media (max-width: 1024px)
+            width: 50%
+            height: auto
+            padding: 30px 30px 40px
+            border: none
+            padding-left: 0
+            justify-content: center 
+            border: $border
+            // z-index: -2
+        @media only screen and  (max-width: 767px)
+            width: 100%
+            padding: 30px 30px 40px  30px
+
+    &-wr:before
+        @media (min-width: 1025px) 
+        content: ''
+        position: absolute
+        top: 0
+        left: -101%
+        width: 200%
+        height: 100%
+        transition: left .7s
+        // @media only screen and  (max-width: 768px)
+        //     position: relative
+        //     width: 0
+    &-wr:nth-child(even):before
+        @media (min-width: 1025px) 
+            background: linear-gradient(to right, $color-red 0%,$color-red 50%,rgba(0,0,0,0) 50%,rgba(0,0,0,0) 100%)
+    &-wr:nth-child(even) 
+        @media only screen and  (max-width: 1024px)
+            background-color: $color-red 
+            // z-index: 1
+    &-wr:nth-child(odd):before
+        @media (min-width: 1025px) 
+            background: linear-gradient(to right, $color-bg 0%,$color-bg 50%,rgba(0,0,0,0) 50%,rgba(0,0,0,0) 100%)
+    &-wr:nth-child(odd)   
+        @media only screen and  (max-width: 1024px)
+            background-color: $color-bg
+    &-wr:hover:before
+        @media (min-width: 1024px) 
+            left: 0
+
+        &-wr:nth-child(even)
+            @media only screen and  (max-width: 768px)
+                background-color: $color-red 
+        &-wr:nth-child(odd)
+            @media only screen and  (max-width: 768px)
+                background-color: $color-bg
+
+    .block
+        // padding-right: 68px
+        position: relative
+        width: 100%
+        @media (max-width: 1024px)       
+            display: flex
+            flex-direction: column
+            align-items: center
+            
+        &-header
+            @media (min-width: 1025px)
+                position: absolute
+                top: 0px
+                transition: 0.5s linear
+                transform: translate(-25px, -50%) scale(0) 
+                opacity: 0   
+            @media only screen and  (max-width: 1024px)      
+                position: relative
+                display: flex
+                margin-top: 30px
+
+                // opacity: 1
+        h2
+            @media (min-width: 1025px)
+                @include font-large
+                top: 0px
+                position: absolute
+                transition: 0.5s  linear
+                transform: translate(0px, -50%)
+
+            @media (max-width: 1024px) 
+                text-transform: uppercase
+                @include font-large-1024
+            @media only screen and  (max-width: 1024px)  
+                margin-top: 20px    
+
+        h3 
+            @include font-small
+            text-transform: uppercase
+            margin-top: 15px
+            @media (min-width: 1025px) and (max-width: 1599px)   
+                @include font-small
+                margin-top: 10px
+            @media only screen and  (max-width: 1024px)   
+                @include font-small-1024 
+                margin: 0 25px
+        h3:first-child 
+            margin-top: 0 
+        img 
+            position: absolute
+            top: calc((100% - 120px)/2)
+            right: -100%
+            transition:  0.8s  linear
+            @media (min-width: 1025px) and (max-width: 1599px)   
+                top: calc((100% - 80px)/2)
+                width: 80px
+                height: 80px
+                transition:  0.6s  linear
+            @media (max-width: 1024px) 
+                width: 80px
+                height: 80px 
+                position: relative
+                right: 0
+
+    &-wr:hover .two-header h2
+        @media (min-width: 1600px) 
+            top: -45px
+        @media (min-width: 1024px) and (max-width: 1599px) 
+            top: -35px
+    &-wr:hover .one-header h2
+        @media (min-width: 1600px) 
+            top: -35px
+        @media (min-width: 1024px) and (max-width: 1599px) 
+            top: -25px
+    &-wr:hover img
+        @media (min-width: 1600px) 
+            right: 38px
+        @media (min-width: 1024px) and (max-width: 1599px) 
+            right: 14px
+    &-wr:hover .two-header .block-header
+        @media (min-width: 1025px) 
+            top: 10px
+            transform: translate(0px, -20%)  scale(1)
+            opacity: 1
+    &-wr:hover .one-header .block-header 
+        @media (min-width: 1025px) 
+            top: 25px
+            transform: translate(0px, -20%)  scale(1)
+            opacity: 1
+    &-wr:nth-child(3), &-wr:nth-child(6)
+        border-right: none 
+
+
+
+footer 
+    display: flex
+    color: rgba(255, 255, 255, 0.4)
+    font-style: normal
+    font-weight: 500
+    font-size: 14px
+    line-height: 17px
+    height: 25vh
+    
+    box-sizing: border-box
+    @media (min-width: 1025px) and (max-width: 1599px)
+        line-height: 20px
+    @media (max-width: 1344px)
+        padding: 0 30px 28px
+    @media only screen and  (max-width: 1024px)
+        height: 10%
+    .footer
+        border-right: $border
+        width: 33.3%
+        height: 100%
+        display: flex
+        align-items: flex-end
+        box-sizing: border-box
+        padding: 0 68px 28px
+        @media (max-width: 1024px)
+            border: none
+        &:last-child
+            border-right: none 
+            justify-content: flex-end
+        @media (max-width: 767px)
+            width: auto
+            padding: 0
+            margin-top: 10px
+    // .footer:nth-child(2)
+    //     @media (max-width: 767px)
+    //         width: 0
+    //         height: 0
+    //         display: none
+    @media (max-width: 767px)
+        color: rgba(52, 54, 59, 0.8)
+        flex-direction: column 
+        justify-content: center
+        align-items: center
+        background: #F5F6F7
+        padding: 30px 0 30px
+
+
+
+
+    
+
+
+
